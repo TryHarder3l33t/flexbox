@@ -1,0 +1,93 @@
+<!--  emmet html:5 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7efb34a456.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <i class="fa fa-bars hamburger"></i>
+      <i class="fas fa-search"></i>
+      <a class="lang" href="/">U.S.</a>
+      <a class="lang" href="/">INTERNATIONAL</a>
+      <a class="lang" href="/">CANADA</a>
+      <a class="lang" href="/">ESPANOL</a>
+      <a class="lang crossword" href="/">PLAY THE CROSSWORD</a>
+      <a class="lang" href="/">ACCOUNT</a>
+    </div>
+    <div id="titleStuff">
+      <ul id="date-stuff">
+        <li><h5 id="today"></h5></li>
+        <li><p>Today's Paper</p></li>
+      </ul>
+
+      <h1>Fullstack Times</h1>
+    </div>
+    <hr />
+    <ul class="nav">
+      <li>World</li>
+      <li>U.S.</li>
+      <li>Business</li>
+      <li>Opinion</li>
+      <li>Opinion</li>
+      <li>Tech</li>
+      <li>Science</li>
+      <li>Health</li>
+      <li>Health</li>
+      <li>Sports</li>
+      <li>Arts</li>
+      <li>Books</li>
+      <li>Style</li>
+      <li>Food</li>
+      <li>Travel</li>
+      <li>Magazine</li>
+      <li>T Magazine</li>
+      <li>Real Estate</li>
+      <li>Video</li>
+    </ul>
+    <hr />
+    <hr />
+
+    <h1>Hello My World</h1>
+    <img src="https://i.redd.it/gwqntar4wtd11.png" />
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+      console.log("DOM fully loaded and parsed");
+      today = new Date();
+      day = today.toDateString();
+      document.getElementById("today").innerHTML = day;
+      fetch("http://schematic-ipsum.herokuapp.com", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: {
+          type: "object",
+          properties: {
+            id: { type: "string", ipsum: "id" },
+            name: { type: "string", ipsum: "name" },
+            email: { type: "string", format: "email" },
+            bio: { type: "string", ipsum: "sentence" },
+            age: { type: "integer" },
+            avatar: { type: "string", ipsum: "small image" },
+          },
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  </script>
+</html>
